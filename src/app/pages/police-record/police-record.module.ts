@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PoliceRecordComponent } from './pages/police-record/police-record.component';
 import {RouterModule, Routes} from "@angular/router";
+import { PoliceRecordToolbarComponent } from './components/police-record-toolbar/police-record-toolbar.component';
+import { PoliceRecordModalComponent } from './components/police-record-modal/police-record-modal.component';
 
 const routes: Routes = [
   {
@@ -11,7 +13,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    PoliceRecordComponent
+    PoliceRecordComponent,
+    PoliceRecordToolbarComponent,
+    PoliceRecordModalComponent
   ],
   imports: [
     CommonModule,
