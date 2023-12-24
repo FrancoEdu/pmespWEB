@@ -1,0 +1,34 @@
+<div class="d-flex flex-row bg-light-subtle shadow rounded-bottom p-3 align-items-center justify-content-between ">
+  <div class="d-flex flex-row gap-3 ms-5">
+    <div>
+      <img src="./assets/default-placeholder-person.jpg" class="rounded shadow" alt="Imagem padrão" height="150px">
+    </div>
+    <div class="d-flex flex-column gap-1">
+      <div class="d-flex flex-row gap-3">
+        <span class="fw-bold fs-4">Adalberto da Silva Junior</span>
+        <span class="badge text-bg-danger d-flex align-items-center">Menor dedão</span>
+      </div>
+      <span class="fw-semibold fs-6 text-secondary">123.456.789-00</span>
+      <span class="fw-semibold fs-6 text-secondary">24 de Agosto de 1976</span>
+      <span class="fw-semibold fs-6 text-secondary">adalberto.silva&#64;outlook.com</span>
+      <span class="fw-semibold fs-6 text-secondary">(19) 99723-1456</span>
+    </div>
+  </div>
+  <div class="d-flex flex-column gap-2 me-5">
+    <button class="btn btn-success">Editar</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Descrição</button>
+
+  </div>
+</div>
+
+
+<!-- MODAL DESCRIÇÃO -->
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Descrição</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Descrição sobre o bandido de vulgo dedão</p>
+  </div>
+</div>
