@@ -16,8 +16,14 @@
       </div>
     </div>
     <div class="d-flex flex-column gap-2 me-5">
-      <button class="btn btn-success">Editar</button>
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Descrição</button>
+      <button class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <i class="pi pi-user-edit"></i>
+        Editar
+      </button>
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+        <i class="pi pi-info"></i>
+        Descrição
+      </button>
     </div>
   </div>
   <ul class="nav nav-underline ms-5">
@@ -42,5 +48,16 @@
   </div>
   <div class="offcanvas-body">
     <p>Descrição sobre o bandido de vulgo dedão</p>
+  </div>
+</div>
+
+<!-- ABERTURA MODAL -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Editar ficha</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-police-record-modal></app-police-record-modal>
   </div>
 </div>
