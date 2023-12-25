@@ -25,6 +25,20 @@
         </tr>
         </thead>
         <tbody>
+          @for(item of bandits; track item){
+            <tr>
+              <td>??</td>
+              <td>{{item.name}}</td>
+              <td>{{item.surname}}</td>
+              <td>{{item.height}}</td>
+              <td>{{item.weight}}</td>
+              <td>botões</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td>Sem dados encontrados...</td>
+            </tr>
+          }
         </tbody>
       </table>
       <nav aria-label="Page navigation example">

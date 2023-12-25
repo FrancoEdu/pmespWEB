@@ -3,6 +3,7 @@ import {BanditService} from "../../shared/service/bandit.service";
 import {Bandit} from "../../shared/model/bandit";
 import {IBaseResponse} from "../../../../common/Models/IBase/IBaseResponse";
 import {Subscription} from "rxjs";
+import {Search} from "../../../../common/Models/Search/Search";
 
 interface PageEvent {
   first: number;
@@ -19,17 +20,19 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
   first = 0;
   rows = 5;
 
+  searchModel: Search = new Search()
+
   bandits: Bandit[] = [];
 
   private _unsubscribe: Subscription[] = new Array<Subscription>();
   constructor(private _service: BanditService) {}
 
   ngOnInit() {
-    this.loadBandits();
+    this.search();
   }
 
-  loadBandits(): void{
-    const sub = this._service.getAll().subscribe((response: IBaseResponse) => {
+  search(): void{
+    const sub = this._service.search(this.searchModel).subscribe((response: IBaseResponse) => {
       if(response.success){
         this.bandits = response.data;
       }

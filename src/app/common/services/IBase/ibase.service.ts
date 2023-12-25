@@ -59,4 +59,10 @@ export class IBaseService<T>{
     URL = `${URL}/${id}`
     return this._httpClient.delete(URL).pipe(timeout(_environment.timeOutAPI));
   }
+
+  search(data: any): Observable<IBaseResponse | any>{
+    let URL = this._apiURL + "/search";
+
+    return this._httpClient.post(URL, data).pipe(timeout(_environment.timeOutAPI));
+  }
 }
