@@ -28,6 +28,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    PaginatorModule,
     RouterModule.forChild(routes)
   ],
   providers:[

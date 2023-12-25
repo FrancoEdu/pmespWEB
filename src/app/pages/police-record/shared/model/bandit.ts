@@ -1,4 +1,5 @@
 export class Bandit{
+  id!: string
   name!: string
   description?: string
   cpf!: string
@@ -8,4 +9,5 @@ export class Bandit{
   surname?: string
   weight?: number
   height?: number
+  photoPath?: string
 }

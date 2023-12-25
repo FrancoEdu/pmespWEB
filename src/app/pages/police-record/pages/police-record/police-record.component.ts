@@ -17,10 +17,10 @@ interface PageEvent {
   templateUrl: './police-record.component.html',
 })
 export class PoliceRecordComponent implements OnInit, OnDestroy{
-  first = 0;
-  rows = 5;
-
-  searchModel: Search = new Search()
+  searchModel: Search = new Search();
+  first = this.searchModel.page;
+  rows = this.searchModel.quantityOnDisplay;
+  totalRecords: number = 0;
 
   bandits: Bandit[] = [];
 
@@ -29,6 +29,15 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.search();
+    this.totalRecordMethod();
+  }
+
+  totalRecordMethod(): void{
+    const number = this._service.getAll().subscribe((res:IBaseResponse) => {
+      if(res.success){
+        this.totalRecords = res.totalRecord;
+      }
+    });
   }
 
   search(): void{
@@ -40,10 +49,19 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
     this._unsubscribe.push(sub);
   }
 
-  onPageChange(event: PageEvent) {
+  setSimilarity(event: any): void{
+    this.searchModel.similarity = event.target.value;
+    this.search();
+  }
+
+  onPageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
+    this.searchModel.page = this.first;
+    this.searchModel.quantityOnDisplay = this.rows;
+    this.search();
   }
+
   ngOnDestroy(): void {
     this._unsubscribe.forEach((sb) => sb.unsubscribe());
   }
