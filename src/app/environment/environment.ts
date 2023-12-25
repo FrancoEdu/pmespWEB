@@ -4,6 +4,6 @@ interface Environment{
 }
 
 export const _environment: Environment = {
-  apiURL: 'http://localhost:5273/api',
+  apiURL: 'https://localhost:7080/api',
   timeOutAPI: 90000
 }

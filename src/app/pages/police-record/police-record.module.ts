@@ -6,6 +6,10 @@ import { PoliceRecordToolbarComponent } from './components/police-record-toolbar
 import { PoliceRecordModalComponent } from './components/police-record-modal/police-record-modal.component';
 import { PoliceRecordDetailsComponent } from './pages/police-record-details/police-record-details.component';
 import { PoliceRecordDetailsToolbarComponent } from './components/police-record-details-toolbar/police-record-details-toolbar.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import {BanditService} from "./shared/service/bandit.service";
+import { InputTextModule } from 'primeng/inputtext';
 
 const routes: Routes = [
   {
@@ -26,7 +30,13 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    TableModule,
+    ButtonModule,
+    InputTextModule,
     RouterModule.forChild(routes)
+  ],
+  providers:[
+    BanditService
   ]
 })
 export class PoliceRecordModule { }

@@ -10,13 +10,12 @@ import {Observable, timeout} from "rxjs";
 export class IBaseService<T>{
 
   protected _httpClient: HttpClient;
-  protected _apiURL: string;
+  protected _apiURL!: string;
+
   constructor(
-    protected _pathResource: string,
     protected _injector: Injector
   ) {
-    this._apiURL = `${_environment.apiURL}${_pathResource}`;
-    this._httpClient = _injector.get(HttpClient)
+    this._httpClient = _injector.get(HttpClient);
   }
 
   getAll(): Observable<IBaseResponse | any>{
