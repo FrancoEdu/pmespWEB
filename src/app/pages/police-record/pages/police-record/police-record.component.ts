@@ -4,6 +4,13 @@ import {Bandit} from "../../shared/model/bandit";
 import {IBaseResponse} from "../../../../common/Models/IBase/IBaseResponse";
 import {Subscription} from "rxjs";
 
+interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+}
+
 @Component({
   selector: 'app-police-record',
   templateUrl: './police-record.component.html',
@@ -30,31 +37,10 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
     this._unsubscribe.push(sub);
   }
 
-  next() {
-    this.first = this.first + this.rows;
-  }
-
-  prev() {
-    this.first = this.first - this.rows;
-  }
-
-  reset() {
-    this.first = 0;
-  }
-
-  pageChange(event: { first: number; rows: number; }) {
+  onPageChange(event: PageEvent) {
     this.first = event.first;
     this.rows = event.rows;
   }
-
-  isLastPage(): boolean {
-    return this.bandits ? this.first === this.bandits.length - this.rows : true;
-  }
-
-  isFirstPage(): boolean {
-    return this.bandits ? this.first === 0 : true;
-  }
-
   ngOnDestroy(): void {
     this._unsubscribe.forEach((sb) => sb.unsubscribe());
   }

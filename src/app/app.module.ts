@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NavbarModule} from "./common/components/navbar/navbar.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     HttpClientModule,
     NavbarModule,
-    NgbModule
+    NgbModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
