@@ -9,6 +9,9 @@ const routes: Routes = [
   },
   {
     path:'policeRecord', loadChildren: () => import('./pages/police-record/police-record.module').then((m) => m.PoliceRecordModule)
+  },
+  {
+    path:'transcriptions', loadChildren: () => import('./pages/transcription/transcription.module').then((m) => m.TranscriptionModule)
   }
 ];
 
