@@ -3,5 +3,5 @@ export class IBaseResponse{
   success!: boolean;
   message!: string;
   errors: any;
-  totalRecord: number = 0
+  totalRecords: number = 0;
 }

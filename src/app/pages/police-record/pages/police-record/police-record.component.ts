@@ -18,9 +18,9 @@ interface PageEvent {
 })
 export class PoliceRecordComponent implements OnInit, OnDestroy{
   searchModel: Search = new Search();
-  first = this.searchModel.page;
-  rows = this.searchModel.quantityOnDisplay;
   totalRecords: number = 0;
+  numberOfRows: number = 0;
+  page: number = 1;
 
   bandits: Bandit[] = [];
 
@@ -28,38 +28,35 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
   constructor(private _service: BanditService) {}
 
   ngOnInit() {
-    this.search();
-    this.totalRecordMethod();
+    this.initData();
   }
 
-  totalRecordMethod(): void{
-    const number = this._service.getAll().subscribe((res:IBaseResponse) => {
-      if(res.success){
-        this.totalRecords = res.totalRecord;
-      }
-    });
-  }
-
-  search(): void{
+  initData(): void{
     const sub = this._service.search(this.searchModel).subscribe((response: IBaseResponse) => {
       if(response.success){
         this.bandits = response.data;
+        this.totalRecords = response.totalRecords;
+        this.numberOfRows = this.totalRecords / 5;
       }
     });
     this._unsubscribe.push(sub);
   }
 
-  setSimilarity(event: any): void{
-    this.searchModel.similarity = event.target.value;
-    this.search();
+  changePageNext(): void{
+    this.page = this.page + 1;
+    this.searchModel.page = this.searchModel.page + 1;
+    this.initData();
   }
 
-  onPageChange(event: any) {
-    this.first = event.first;
-    this.rows = event.rows;
-    this.searchModel.page = this.first;
-    this.searchModel.quantityOnDisplay = this.rows;
-    this.search();
+  changePagePrevious(): void{
+    this.page = this.page - 1;
+    this.searchModel.page = this.searchModel.page - 1;
+    this.initData();
+  }
+
+  setSimilarity(event: any): void{
+    this.searchModel.similarity = event.target.value;
+    this.initData();
   }
 
   ngOnDestroy(): void {
