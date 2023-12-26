@@ -9,5 +9,6 @@ export class Bandit{
   surname?: string
   weight?: number
   height?: number
-  photoPath?: string
+  principalPhoto?: string
+  extension?: string
 }

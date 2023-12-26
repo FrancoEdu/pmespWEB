@@ -8,6 +8,12 @@ import { PoliceRecordDetailsComponent } from './pages/police-record-details/poli
 import { PoliceRecordDetailsToolbarComponent } from './components/police-record-details-toolbar/police-record-details-toolbar.component';
 import {BanditService} from "./shared/service/bandit.service";
 import {PaginatorModule} from "primeng/paginator";
+import {CPFPipe} from "../../common/pipes/cpf.pipe";
+import {CustomBdDatePipe} from "../../common/pipes/custom-bd-date.pipe";
+import {registerLocaleData} from "@angular/common";
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 
 const routes: Routes = [
   {
@@ -29,6 +35,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     PaginatorModule,
+    CPFPipe,
+    CustomBdDatePipe,
     RouterModule.forChild(routes)
   ],
   providers:[

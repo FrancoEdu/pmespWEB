@@ -24,6 +24,8 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
 
   bandits: Bandit[] = [];
 
+  banditDetail?: Bandit;
+
   private _unsubscribe: Subscription[] = new Array<Subscription>();
   constructor(private _service: BanditService) {}
 
@@ -57,6 +59,15 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
   setSimilarity(event: any): void{
     this.searchModel.similarity = event.target.value;
     this.initData();
+  }
+
+  setDetailsBandit(id: string): void{
+    const sub = this._service.getById(id).subscribe((res:IBaseResponse) => {
+      if(res.success){
+        this.banditDetail = res.data;
+      }
+    });
+    this._unsubscribe.push(sub);
   }
 
   ngOnDestroy(): void {

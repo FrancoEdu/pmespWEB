@@ -11,7 +11,7 @@ import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
