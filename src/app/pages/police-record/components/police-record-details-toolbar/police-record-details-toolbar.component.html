@@ -14,10 +14,10 @@
             <span class="fw-bold fs-4">{{bandit?.name}}</span>
             <span class="badge text-bg-danger d-flex align-items-center">{{bandit?.surname }}</span>
           </div>
-          <span class="fw-semibold fs-6 text-secondary">{{ bandit?.cpf | cPF}}</span>
-          <span class="fw-semibold fs-6 text-secondary">{{ bandit?.birthday | customBdDate}}</span>
-          <span class="fw-semibold fs-6 text-secondary">{{ bandit?.email }}</span>
-          <span class="fw-semibold fs-6 text-secondary">{{ bandit?.phone }}</span>
+          <span class="fw-semibold fs-6 text-secondary"><span class="pi pi-id-card pe-2"></span>{{ bandit?.cpf | cPF}}</span>
+          <span class="fw-semibold fs-6 text-secondary"><span class="pi pi-calendar pe-2"></span>{{ bandit?.birthday | customBdDate}}</span>
+          <span class="fw-semibold fs-6 text-secondary"><span class="pi pi-inbox pe-2"></span>{{ bandit?.email }}</span>
+          <span class="fw-semibold fs-6 text-secondary"><span class="pi pi-mobile pe-2"></span>{{ bandit?.phone }}</span>
         </div>
       </div>
       <div class="d-flex flex-column gap-2 me-5">

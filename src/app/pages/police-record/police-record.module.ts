@@ -12,6 +12,7 @@ import {CPFPipe} from "../../common/pipes/cpf.pipe";
 import {CustomBdDatePipe} from "../../common/pipes/custom-bd-date.pipe";
 import {registerLocaleData} from "@angular/common";
 import localePt from '@angular/common/locales/pt';
+import {ReactiveFormsModule} from "@angular/forms";
 
 registerLocaleData(localePt);
 
@@ -37,6 +38,7 @@ const routes: Routes = [
     PaginatorModule,
     CPFPipe,
     CustomBdDatePipe,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers:[
