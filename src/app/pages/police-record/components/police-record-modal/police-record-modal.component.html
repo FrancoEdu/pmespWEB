@@ -100,46 +100,175 @@
       >
       }
     </div>
-    <div class="mb-3">
+    <div>
       <label for="phone" class="form-label">Celular</label>
       <input
         type="text"
         class="form-control"
         id="phone"
         placeholder="Ex: (19)997221478"
+        mask="(00) 00000-0000"
         formControlName="phone"
       />
+      @if (resourceForm.controls["phone"].errors?.["maxlenght"]){
+      <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito até 12 caracteres no Celular</span
+      >
+      }
     </div>
-    <div class="input-group">
+    <div class="">
+      <label for="email" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
-        placeholder="Email"
-        aria-label="Email"
-        aria-describedby="basic-addon1"
+        id="email"
+        placeholder="Ex: zezinho@gmail.com"
         formControlName="email"
       />
-      <span class="input-group-text" id="basic-addon1">&#64;</span>
+      @if (resourceForm.controls['email'].invalid &&
+      resourceForm.controls['email'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >O valor não parece ser um email...</span
+      >
+      }
     </div>
-    <div class="input-group">
+    <div class="">
+      <label for="weight" class="form-label">Peso(Kg)</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Peso"
-        aria-label="Kilogramas"
+        id="weight"
+        placeholder="Ex: 74"
         formControlName="weight"
       />
-      <span class="input-group-text">kg</span>
+      @if (resourceForm.controls['weight'].invalid &&
+      resourceForm.controls['weight'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Digite somente números no peso</span
+      >
+      }
     </div>
-    <div class="input-group">
+    <div class="">
+      <label for="height" class="form-label">Altura(cm)</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Altura"
-        aria-label="Cm"
+        id="height"
+        placeholder="Ex: 74"
         formControlName="height"
       />
-      <span class="input-group-text">cm</span>
+      @if (resourceForm.controls['height'].invalid &&
+      resourceForm.controls['height'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Digite somente números na altura</span
+      >
+      }
+    </div>
+    <div class="">
+      <label for="naturalness" class="form-label">Naturalidade</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="naturalness"
+        id="naturalness"
+      >
+        <option selected>Município...</option>
+        @for(item of municipios; track item){
+        <option>{{ item.nome }}</option>
+        }
+      </select>
+    </div>
+    <div class="">
+      <label for="maritalStatus" class="form-label">Estado civil</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="maritalStatus"
+        id="maritalStatus"
+      >
+        <option selected>Situação...</option>
+        @for(item of maritalStatus; track item){
+        <option>{{ item.situation }}</option>
+        }
+      </select>
+    </div>
+    <div class="">
+      <label for="criminalSituation" class="form-label"
+        >Situação criminal</label
+      >
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="criminalSituation"
+        id="criminalSituation"
+      >
+        <option selected>Situação...</option>
+        @for(item of criminalSituation; track item){
+        <option>{{ item.situation }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label for="orcrim" class="form-label">ORCRIM</label>
+      <textarea
+        class="form-control"
+        id="orcrim"
+        rows="3"
+        formControlName="orcrim"
+      ></textarea>
+    </div>
+    <div class="">
+      <label for="crimeFunction" class="form-label">Função no crime</label>
+      <input
+        type="text"
+        class="form-control"
+        id="crimeFunction"
+        placeholder="Ex: Fogueteiro"
+        formControlName="crimeFunction"
+      />
+    </div>
+    <div class="">
+      <label for="whatsapp" class="form-label">WhatsApp</label>
+      <input
+        type="text"
+        class="form-control"
+        id="whatsapp"
+        placeholder="Ex: (19) 99900-1234"
+        formControlName="whatsapp"
+        mask="(00) 00000-0000"
+      />
+    </div>
+    <div class="">
+      <label for="pixEmail" class="form-label">Pix Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pixEmail"
+        placeholder="zezinho@gmail.com"
+        formControlName="pixEmail"
+      />
+    </div>
+    <div class="">
+      <label for="pixPhone" class="form-label">Pix celular</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pixPhone"
+        placeholder="Ex: (19) 99900-1234"
+        formControlName="pixPhone"
+        mask="(00) 00000-0000"
+      />
+    </div>
+    <div class="">
+      <label for="pixCPF" class="form-label">Pix CPF</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pixCPF"
+        placeholder="Ex: 123.456.789-00"
+        formControlName="pixCPF"
+        mask="000.000.000-00"
+      />
     </div>
     <div class="text-center mt-3">
       <div class="d-flex flex-row gap-3 justify-content-center">

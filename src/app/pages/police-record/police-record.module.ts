@@ -14,6 +14,7 @@ import {registerLocaleData} from "@angular/common";
 import localePt from '@angular/common/locales/pt';
 import {ReactiveFormsModule} from "@angular/forms";
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { MunicipioService } from '../../common/services/IBGE/municipio.service';
 
 registerLocaleData(localePt);
 
@@ -47,7 +48,8 @@ const routes: Routes = [
   ],
   providers:[
     BanditService,
-    provideNgxMask()
+    provideNgxMask(),
+    MunicipioService
   ]
 })
 export class PoliceRecordModule { }
