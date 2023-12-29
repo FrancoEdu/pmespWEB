@@ -1,2 +1,9 @@
 <app-nav></app-nav>
 <router-outlet></router-outlet>
+<ngx-spinner
+  bdColor="{{ _loader.BackgroundColor }}"
+  color="{{ _loader.Color }}"
+  type="{{ _loader.Type }}"
+>
+  <p style="font-size: 20px; color: white">{{ _loader.Description }}</p>
+</ngx-spinner>

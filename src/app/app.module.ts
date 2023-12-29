@@ -8,6 +8,11 @@ import {NavbarModule} from "./common/components/navbar/navbar.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import { PaginatorModule } from 'primeng/paginator';
+import { NgxSpinnerModule } from "ngx-spinner";
+
+export interface NgxSpinnerConfig {
+  type?: string;
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +25,8 @@ import { PaginatorModule } from 'primeng/paginator';
     HttpClientModule,
     NavbarModule,
     NgbModule,
-    PaginatorModule
+    PaginatorModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
