@@ -1,8 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import { Message } from 'primeng/api';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Bandit} from "../../shared/model/bandit";
-import { NgxMaskDirective } from 'ngx-mask';
+import { DataValidator } from '../../../../common/Validators/DataValidator';
 
 @Component({
   selector: 'app-police-record-modal',
@@ -13,6 +12,7 @@ export class PoliceRecordModalComponent implements OnInit{
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   resourceForm!: FormGroup;
+  today = Date.now();
 
   @Input() bandit?:Bandit;
 
@@ -33,7 +33,7 @@ export class PoliceRecordModalComponent implements OnInit{
         Validators.pattern("^[0-9]+$"),
         Validators.maxLength(14)
       ]],
-      birthday: [this.bandit?.birthday ?? null],
+      birthday: [this.bandit?.birthday ?? null, [DataValidator.dateValidator]],
       phone: [this.bandit?.phone ?? null, [Validators.maxLength(12)]],
       email: [this.bandit?.email, [Validators.email]],
       surname: [this.bandit?.surname ?? null],

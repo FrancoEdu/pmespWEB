@@ -93,6 +93,12 @@
         id="birthday"
         formControlName="birthday"
       />
+      @if (resourceForm.get('birthday')?.errors?.['futureDate'] &&
+      resourceForm.get('birthday')?.touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Data de nascimento não pode ser maior que hoje</span
+      >
+      }
     </div>
     <div class="mb-3">
       <label for="phone" class="form-label">Celular</label>
