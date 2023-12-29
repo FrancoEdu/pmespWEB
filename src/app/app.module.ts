@@ -9,10 +9,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import { PaginatorModule } from 'primeng/paginator';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
 
 export interface NgxSpinnerConfig {
   type?: string;
 }
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -26,9 +31,13 @@ export interface NgxSpinnerConfig {
     NavbarModule,
     NgbModule,
     PaginatorModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
+  providers: [
+    provideEnvironmentNgxMask(maskConfig),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

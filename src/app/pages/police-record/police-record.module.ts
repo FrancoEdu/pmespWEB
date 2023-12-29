@@ -13,8 +13,10 @@ import {CustomBdDatePipe} from "../../common/pipes/custom-bd-date.pipe";
 import {registerLocaleData} from "@angular/common";
 import localePt from '@angular/common/locales/pt';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 registerLocaleData(localePt);
+
 
 const routes: Routes = [
   {
@@ -39,10 +41,13 @@ const routes: Routes = [
     CPFPipe,
     CustomBdDatePipe,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers:[
-    BanditService
+    BanditService,
+    provideNgxMask()
   ]
 })
 export class PoliceRecordModule { }

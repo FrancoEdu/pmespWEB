@@ -2,10 +2,11 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { Message } from 'primeng/api';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Bandit} from "../../shared/model/bandit";
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-police-record-modal',
-  templateUrl: './police-record-modal.component.html'
+  templateUrl: './police-record-modal.component.html',
 })
 export class PoliceRecordModalComponent implements OnInit{
   @ViewChild('imagePreview') imagePreview!: ElementRef;
