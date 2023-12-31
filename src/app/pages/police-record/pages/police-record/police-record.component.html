@@ -1,6 +1,10 @@
 <app-police-record-toolbar>
-  <app-police-record-modal></app-police-record-modal>
+  <app-police-record-modal
+    (loadNewDataAgain)="initData()"
+  ></app-police-record-modal>
 </app-police-record-toolbar>
+<p-toast [hideTransitionOptions]="'1500ms'"></p-toast>
+
 <div class="d-flex justify-content-center">
   <div class="m-5 w-100 rounded shadow">
     <div class="d-flex flex-row m-3 justify-content-between" style="height: 45px">
@@ -49,7 +53,7 @@
                   <button class="btn btn-primary" [routerLink]="item.id + '/details'">
                     <i class="pi pi-pencil"></i>
                   </button>
-                  <button class="btn btn-danger" >
+                  <button class="btn btn-danger" (click)="delete(item.id)">
                     <i class="pi pi-trash"></i>
                   </button>
                   <button [ngClass]="item.principalPhoto ? '' : 'disabled' "

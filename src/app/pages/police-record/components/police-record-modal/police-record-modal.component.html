@@ -1,72 +1,329 @@
 <form [formGroup]="resourceForm">
-  @if(bandit?.id != null || undefined){
-    <div class="text-center">
-      <label for="file-input">
-        <img src="./assets/default-placeholder-person.jpg" style="cursor: pointer" class="rounded shadow" alt="Imagem padrão" height="150px" #imagePreview>
-      </label>
-      <input type="file" id="file-input" style="display: none;" (change)="onFileSelected($event)" #fileInput>
-    </div>
+  @if(bandit?.id){
+  <div class="text-center">
+    <label for="file-input">
+      <img
+        [src]="bandit?.principalPhoto ? 'data:image/jpg;base64,' + bandit?.principalPhoto : './assets/default-placeholder-person.jpg'"
+        style="cursor: pointer"
+        class="rounded shadow"
+        alt="Imagem padrão"
+        height="200px"
+        width="200px"
+        #imagePreview
+      />
+    </label>
+    <input
+      type="file"
+      id="file-input"
+      style="display: none"
+      (change)="onFileSelected($event)"
+      #fileInput
+    />
+  </div>
   }
   <div class="d-flex flex-column gap-2">
     <div>
       <label for="name" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="name" placeholder="Ex: José Arnaldo Siqueira" formControlName="name">
-      @if (resourceForm.controls["name"].invalid && resourceForm.controls["name"].touched){
-        <span class="badge rounded-pill text-bg-danger">O nome é obrigatório</span>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Ex: José Arnaldo Siqueira"
+        formControlName="name"
+
+      />
+      @if (resourceForm.controls["name"].invalid &&
+      resourceForm.controls["name"].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >O nome é obrigatório</span
+      >
       }
     </div>
     <div>
       <label for="surname" class="form-label">Vulgo</label>
-      <input type="text" class="form-control" id="surname" placeholder="Ex: Irmão menor" formControlName="surname">
+      <input
+        type="text"
+        class="form-control"
+        id="surname"
+        placeholder="Ex: Irmão menor"
+        formControlName="surname"
+      />
     </div>
     <div>
       <label for="description" class="form-label">Descrição</label>
-      <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
-      @if (resourceForm.controls["description"].invalid && resourceForm.controls["description"].touched){
-        <span class="badge rounded-pill text-bg-danger">Descrição só é permitida no tamanho máximo de 255 caracteres</span>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="3"
+        formControlName="description"
+      ></textarea>
+      @if (resourceForm.controls["description"].invalid &&
+      resourceForm.controls["description"].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Descrição só é permitida no tamanho máximo de 255 caracteres</span
+      >
       }
     </div>
     <div>
       <label for="cpf" class="form-label">CPF</label>
-      <input type="text" class="form-control" id="cpf" placeholder="Ex: 123.456.789-00" formControlName="cpf">
-      @if (resourceForm.controls['cpf'].invalid && resourceForm.controls['cpf'].touched){
-        @if(resourceForm.controls['cpf'].errors?.['required']){
-          <span class="badge rounded-pill text-bg-danger">O CPF é obrigatório</span>
-        } @else if (resourceForm.controls["cpf"].errors?.["pattern"]){
-          <span class="badge rounded-pill text-bg-danger">Somente é aceito números no CPF</span>
-        } @else if (resourceForm.controls["cpf"].errors?.["maxlenght"]){
-          <span class="badge rounded-pill text-bg-danger">Somente é aceito até 14 caracteres no CPF</span>
-        }
-      }
+      <input
+        type="text"
+        class="form-control"
+        id="cpf"
+        placeholder="Ex: 123.456.789-00"
+        mask="000.000.000-00"
+        formControlName="cpf"
+      />
+      @if (resourceForm.controls['cpf'].invalid &&
+      resourceForm.controls['cpf'].touched){
+      @if(resourceForm.controls['cpf'].errors?.['required']){
+      <span class="badge rounded-pill text-bg-danger">O CPF é obrigatório</span>
+      } @else if (resourceForm.controls["cpf"].errors?.["pattern"]){
+      <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito números no CPF</span
+      >
+      } @else if (resourceForm.controls["cpf"].errors?.["maxlenght"]){
+      <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito até 14 caracteres no CPF</span
+      >
+      } }
     </div>
     <div>
       <label for="birthday" class="form-label">Data de nascimento</label>
-      <input type="date" class="form-control" id="birthday" formControlName="birthday">
+      <input
+        type="date"
+        class="form-control"
+        id="birthday"
+        formControlName="birthday"
+      />
+      @if (resourceForm.get('birthday')?.errors?.['futureDate'] &&
+      resourceForm.get('birthday')?.touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Data de nascimento não pode ser maior que hoje</span
+      >
+      }
     </div>
-    <div class="mb-3">
+    <div>
       <label for="phone" class="form-label">Celular</label>
-      <input type="text" class="form-control" id="phone" placeholder="Ex: (19)997221478" formControlName="phone">
+      <input
+        type="text"
+        class="form-control"
+        id="phone"
+        placeholder="Ex: (19)997221478"
+        mask="00 00000-0000"
+        formControlName="phone"
+      />
+      @if (resourceForm.controls["phone"].errors?.["maxlenght"]){
+      <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito até 12 caracteres no Celular</span
+      >
+      }
     </div>
-    <div class="input-group">
-      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" formControlName="email">
-      <span class="input-group-text" id="basic-addon1">&#64;</span>
+    <div class="">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Ex: zezinho@gmail.com"
+        formControlName="email"
+      />
+      @if (resourceForm.controls['email'].invalid &&
+      resourceForm.controls['email'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >O valor não parece ser um email...</span
+      >
+      }
     </div>
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Peso" aria-label="Kilogramas" formControlName="weight">
-      <span class="input-group-text">kg</span>
+    <div class="">
+      <label for="weight" class="form-label">Peso(Kg)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="weight"
+        placeholder="Ex: 74"
+        formControlName="weight"
+      />
+      @if (resourceForm.controls['weight'].invalid &&
+      resourceForm.controls['weight'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Digite somente números no peso</span
+      >
+      }
     </div>
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Altura" aria-label="Cm" formControlName="height">
-      <span class="input-group-text">cm</span>
+    <div class="">
+      <label for="height" class="form-label">Altura(cm)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="height"
+        placeholder="Ex: 74"
+        formControlName="height"
+      />
+      @if (resourceForm.controls['height'].invalid &&
+      resourceForm.controls['height'].touched){
+      <span class="badge rounded-pill text-bg-danger"
+        >Digite somente números na altura</span
+      >
+      }
+    </div>
+    <div class="">
+      <label for="naturalness" class="form-label">Naturalidade</label>
+      <select
+        class="form-select"
+        formControlName="naturalness"
+        id="naturalness"
+      >
+        <option selected>Município...</option>
+        @for(item of municipios; track item){
+        <option>{{ item.nome }}</option>
+        }
+      </select>
+    </div>
+    <div class="">
+      <label for="maritalStatus" class="form-label">Estado civil</label>
+      <select
+        class="form-select"
+        formControlName="maritalStatus"
+        id="maritalStatus"
+      >
+        <option selected>Situação...</option>
+        @for(item of maritalStatus; track item){
+        <option>{{ item.situation }}</option>
+        }
+      </select>
+    </div>
+    <div class="">
+      <label for="criminalSituation" class="form-label"
+        >Situação criminal</label
+      >
+      <select
+        class="form-select"
+        formControlName="criminalSituation"
+        id="criminalSituation"
+      >
+        <option selected>Situação...</option>
+        @for(item of criminalSituation; track item){
+        <option>{{ item.situation }}</option>
+        }
+      </select>
+    </div>
+    <div>
+      <label for="orcrim" class="form-label">ORCRIM</label>
+      <textarea
+        class="form-control"
+        id="orcrim"
+        rows="3"
+        formControlName="orcrim"
+      ></textarea>
+      @if (resourceForm.controls["description"].invalid &&
+      resourceForm.controls["description"].touched){
+        <span class="badge rounded-pill text-bg-danger"
+        >Descrição só é permitida no tamanho máximo de 255 caracteres</span
+        >
+      }
+    </div>
+    <div class="">
+      <label for="crimeFunction" class="form-label">Função no crime</label>
+      <input
+        type="text"
+        class="form-control"
+        id="crimeFunction"
+        placeholder="Ex: Fogueteiro"
+        formControlName="crimeFunction"
+      />
+    </div>
+    <div class="">
+      <label for="whatsapp" class="form-label">WhatsApp</label>
+      <input
+        type="text"
+        class="form-control"
+        id="whatsapp"
+        placeholder="Ex: (19) 99900-1234"
+        formControlName="whatsApp"
+        mask="00 00000-0000"
+      />
+      @if (resourceForm.controls["whatsApp"].errors?.["pattern"]){
+        <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito números no pix Celular</span
+        >
+      } @else if (resourceForm.controls["whatsApp"].errors?.["maxlenght"]){
+        <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito até 12 caracteres no pix Celular</span
+        >
+      }
+    </div>
+    <div class="">
+      <label for="pixEmail" class="form-label">Pix Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="pixEmail"
+        placeholder="zezinho@gmail.com"
+        formControlName="pixEmail"
+      />
+      @if (resourceForm.controls['pixEmail'].invalid &&
+      resourceForm.controls['pixEmail'].touched){
+        <span class="badge rounded-pill text-bg-danger"
+        >O valor não parece ser um email...</span
+        >
+      }
+    </div>
+    <div class="">
+      <label for="pixPhone" class="form-label">Pix celular</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pixPhone"
+        placeholder="Ex: (19) 99900-1234"
+        formControlName="pixPhone"
+        mask="00 00000-0000"
+      />
+      @if (resourceForm.controls["pixPhone"].errors?.["pattern"]){
+        <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito números no pix Celular</span
+        >
+      } @else if (resourceForm.controls["pixPhone"].errors?.["maxlenght"]){
+        <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito até 12 caracteres no pix Celular</span
+        >
+      }
+    </div>
+    <div class="">
+      <label for="pixCPF" class="form-label">Pix CPF</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pixCPF"
+        placeholder="Ex: 123.456.789-00"
+        formControlName="pixCPF"
+        mask="000.000.000-00"
+      />
+      @if (resourceForm.controls["pixCPF"].errors?.["pattern"]){
+      <span class="badge rounded-pill text-bg-danger"
+        >Somente é aceito números no pix CPF</span
+      >
+      } @else if (resourceForm.controls["pixCPF"].errors?.["maxlenght"]){
+      <span class="badge rounded-pill text-bg-danger"
+      >Somente é aceito até 14 caracteres no pix CPF</span
+      >
+    }
     </div>
     <div class="text-center mt-3">
       <div class="d-flex flex-row gap-3 justify-content-center">
-        <button class="btn btn-secondary" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        >
           Cancelar
         </button>
-        <button class="btn btn-primary">
-          Cadastrar
-        </button>
+        @if(resourceForm.invalid){
+          <button class="btn btn-primary" disabled>Cadastrar</button>
+        } @else {
+          <button class="btn btn-primary" (click)="sendNewBandit()">Cadastrar</button>
+        }
       </div>
     </div>
   </div>

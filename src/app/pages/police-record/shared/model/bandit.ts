@@ -11,4 +11,18 @@ export class Bandit{
   height?: number
   principalPhoto?: string
   extension?: string
+  nationality?: string
+  naturalness?: string
+  maritalStatus?: string
+  criminalSituation?: string
+  orcrim?: string
+  crimeFunction?: string
+  profession?: string
+  criminalRG?: string
+  chainRegistration?: string
+  operationPhone?: string
+  whatsApp?: string
+  pixEmail?: string
+  pixPhone?: string
+  pixCPF?: string
 }

@@ -4,6 +4,7 @@ import {Bandit} from "../../shared/model/bandit";
 import {IBaseResponse} from "../../../../common/Models/IBase/IBaseResponse";
 import {Subscription} from "rxjs";
 import {Search} from "../../../../common/Models/Search/Search";
+import {MessageService} from "primeng/api";
 
 interface PageEvent {
   first: number;
@@ -27,7 +28,10 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
   banditDetail?: Bandit;
 
   private _unsubscribe: Subscription[] = new Array<Subscription>();
-  constructor(private _service: BanditService) {}
+  constructor(
+    private _service: BanditService,
+    private readonly _messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.initData();
@@ -68,6 +72,25 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
       }
     });
     this._unsubscribe.push(sub);
+  }
+
+  delete(id: string): void {
+    const sub = this._service.delete(id).subscribe((res:IBaseResponse) => {
+      if(res.success){
+        this._messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: `${res.message}`
+        });
+        this.initData();
+      }
+    }, (error: Error) => {
+      this._messageService.add({
+        severity: 'error',
+        summary: 'Erro',
+        detail: `${error.message}`
+      });
+    });
   }
 
   ngOnDestroy(): void {

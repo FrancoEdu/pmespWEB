@@ -13,8 +13,13 @@ import {CustomBdDatePipe} from "../../common/pipes/custom-bd-date.pipe";
 import {registerLocaleData} from "@angular/common";
 import localePt from '@angular/common/locales/pt';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { MunicipioService } from '../../common/services/IBGE/municipio.service';
+import {MessageService} from "primeng/api";
+import { ToastModule } from 'primeng/toast';
 
 registerLocaleData(localePt);
+
 
 const routes: Routes = [
   {
@@ -39,10 +44,16 @@ const routes: Routes = [
     CPFPipe,
     CustomBdDatePipe,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxMaskDirective,
+    NgxMaskPipe,
+    ToastModule
   ],
   providers:[
-    BanditService
+    BanditService,
+    provideNgxMask(),
+    MunicipioService,
+    MessageService
   ]
 })
 export class PoliceRecordModule { }

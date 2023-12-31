@@ -99,7 +99,11 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <app-police-record-modal></app-police-record-modal>
+      @if (bandit){
+        <app-police-record-modal
+          [bandit]="bandit"
+        ></app-police-record-modal>
+      }
     </div>
   </div>
 }
