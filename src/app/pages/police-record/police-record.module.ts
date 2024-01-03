@@ -31,6 +31,8 @@ import { BanditFriendsComponent } from './components/bandit-friends/bandit-frien
 import { BanditSocialMediaComponent } from './components/bandit-social-media/bandit-social-media.component';
 import { BanditPessoalSignalsComponent } from './components/bandit-pessoal-signals/bandit-pessoal-signals.component';
 import { BanditPhotosComponent } from './components/bandit-photos/bandit-photos.component';
+import { BanditTattoosModalComponent } from './components/bandit-tattoos-modal/bandit-tattoos-modal.component';
+import { BanditTattooDetailModalComponent } from './components/bandit-tattoo-detail-modal/bandit-tattoo-detail-modal.component';
 
 const routes: Routes = [
   {
@@ -62,7 +64,9 @@ const routes: Routes = [
     BanditFriendsComponent,
     BanditSocialMediaComponent,
     BanditPessoalSignalsComponent,
-    BanditPhotosComponent
+    BanditPhotosComponent,
+    BanditTattoosModalComponent,
+    BanditTattooDetailModalComponent
   ],
   imports: [
     CommonModule,
