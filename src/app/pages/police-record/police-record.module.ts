@@ -16,6 +16,7 @@ import { MunicipioService } from '../../common/services/IBGE/municipio.service';
 import {MessageService} from "primeng/api";
 import { ToastModule } from 'primeng/toast';
 import {AppRoutingModule} from "../../app-routing.module";
+import { BanditTattoosComponent } from './components/bandit-tattoos/bandit-tattoos.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
     PoliceRecordToolbarComponent,
     PoliceRecordModalComponent,
     PoliceRecordDetailsComponent,
-    PoliceRecordDetailsToolbarComponent
+    PoliceRecordDetailsToolbarComponent,
+    BanditTattoosComponent
   ],
   imports: [
     CommonModule,

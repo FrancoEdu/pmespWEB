@@ -1,3 +1,11 @@
 <app-police-record-details-toolbar
   [bandit]="entity"
 ></app-police-record-details-toolbar>
+
+<div class="d-flex justify-content-center">
+  <div class="m-5 w-100 rounded shadow">
+    @if (tattooTab){
+      <app-bandit-tattoos></app-bandit-tattoos>
+    }
+  </div>
+</div>
