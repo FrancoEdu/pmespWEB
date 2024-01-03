@@ -25,7 +25,7 @@ export class PoliceRecordModalComponent implements OnInit, OnDestroy{
   criminalSituation: MaritalStatus[] = [{id: 0, situation: 'Foragido'}, {id: 1, situation: 'Procurado'}, {id: 2, situation: 'Preso'}, {id: 3, situation: 'Livre'}, {id: 4, situation: 'Egresso'}];
 
   resourceForm!: FormGroup;
-  today = Date.now();
+  today: number = Date.now();
 
   @Input() bandit?:Bandit;
 
