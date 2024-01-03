@@ -12,22 +12,7 @@ import {Subscription} from "rxjs";
 export class PoliceRecordDetailsComponent implements OnInit, OnDestroy{
   entity?: Bandit
   id: any;
-
-  tattooTab: boolean = true;
-  RGsTab: boolean = false;
-  adressesTab: boolean = false;
-  phonesTab: boolean = false;
-  familyTab: boolean = false;
-  gunsTab: boolean = false;
-  childsTab: boolean = false;
-  motorsTab: boolean = false;
-  CompanyAssociateTab: boolean = false;
-  JobLocationTab: boolean = false;
-  MomentsTab: boolean = false;
-  FriendBanditsTab: boolean = false;
-  socialMediaTab: boolean = false;
-  pessoalSignalsTab: boolean = false;
-  photosTab: boolean = false;
+  tabActive: number = 0;
 
   private _unsubscribe: Subscription[] = new Array<Subscription>()
   constructor(
@@ -50,6 +35,9 @@ export class PoliceRecordDetailsComponent implements OnInit, OnDestroy{
     return param
   }
 
+  changeTab(number: number): void{
+    this.tabActive = number;
+  }
   ngOnDestroy(): void{
     this._unsubscribe.forEach((sb) => sb.unsubscribe())
   }

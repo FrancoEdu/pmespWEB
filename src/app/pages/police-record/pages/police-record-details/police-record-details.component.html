@@ -1,11 +1,56 @@
 <app-police-record-details-toolbar
   [bandit]="entity"
+  (changeTab)="changeTab($event)"
 ></app-police-record-details-toolbar>
 
 <div class="d-flex justify-content-center">
   <div class="m-5 w-100 rounded shadow">
-    @if (tattooTab){
-      <app-bandit-tattoos></app-bandit-tattoos>
+    @switch (tabActive){
+      @case (0){
+        <app-bandit-tattoos></app-bandit-tattoos>
+      }
+      @case (1){
+        <app-bandit-rgs></app-bandit-rgs>
+      }
+      @case (2){
+        <app-bandit-addresses></app-bandit-addresses>
+      }
+      @case (3){
+        <app-bandit-phones></app-bandit-phones>
+      }
+      @case (4){
+        <app-bandit-family></app-bandit-family>
+      }
+      @case (5){
+        <app-bandit-guns></app-bandit-guns>
+      }
+      @case (6){
+        <app-bandit-childs></app-bandit-childs>
+      }
+      @case (7){
+        <app-bandit-motors></app-bandit-motors>
+      }
+      @case (8){
+        <app-bandit-job-associate></app-bandit-job-associate>
+      }
+      @case (9){
+        <app-bandit-job-locations></app-bandit-job-locations>
+      }
+      @case (10){
+        <app-bandit-moments></app-bandit-moments>
+      }
+      @case (11){
+        <app-bandit-friends></app-bandit-friends>
+      }
+      @case (12){
+        <app-bandit-social-media></app-bandit-social-media>
+      }
+      @case (13){
+        <app-bandit-pessoal-signals></app-bandit-pessoal-signals>
+      }
+      @case (14){
+        <app-bandit-photos></app-bandit-photos>
+      }
     }
   </div>
 </div>

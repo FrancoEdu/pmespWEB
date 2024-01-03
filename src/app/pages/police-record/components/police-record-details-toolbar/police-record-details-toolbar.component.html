@@ -32,50 +32,74 @@
       </div>
     </div>
     <ul class="nav nav-underline ms-5">
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="#">Tatuagens</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           [ngClass]="tattooTab ? 'active': ''"
+           (click)="setTabTattooActive()"
+        >Tatuagens</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">RGs</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           [ngClass]="RGsTab ? 'active': ''"
+           (click)="setTabRGsActive()"
+        >RGs</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Endereços</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           [ngClass]="addressesTab ? 'active': ''"
+           (click)="setTabAddressesActive()"
+        >Endereços</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Telefones</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           (click)="setPhoneTabActive()"
+           [ngClass]="phonesTab ? 'active': ''"
+        >Telefones</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Familiares</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           (click)="setFamilyTabActive()"
+           [ngClass]="familyTab ? 'active': ''"
+        >Familiares</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Armas</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           (click)="setGunsTabActive()"
+           [ngClass]="gunsTab ? 'active': ''"
+        >Armas</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filhos</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           (click)="setChildsTabActive()"
+           [ngClass]="childsTab ? 'active': ''"
+        >Filhos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Veículos</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setMotorsTabActive()" [ngClass]="motorsTab ? 'active': ''">Veículos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Empresas Associadas</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setCompanyAssociateTabActive()" [ngClass]="CompanyAssociateTab ? 'active': ''">Empresas Associadas</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Local de Trabalho</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setJobLocationTabActive()" [ngClass]="JobLocationTab ? 'active': ''">Local de Trabalho</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ocorrências</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setMomentsTabActive()" [ngClass]="MomentsTab ? 'active': ''">Ocorrências</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Comparsas</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setFriendsBanditTabActive()" [ngClass]="FriendBanditsTab ? 'active': ''">Comparsas</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Redes Sociais</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setSocialMediaTabActive()" [ngClass]="socialMediaTab ? 'active': ''">Redes Sociais</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sinais Particulares</a>
+      <li class="nav-item pointer">
+        <a class="nav-link"
+           (click)="setPessoalSignalsTabActive()"
+           [ngClass]="pessoalSignalsTab ? 'active': ''"
+        >Sinais Particulares</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Fotos</a>
+      <li class="nav-item pointer">
+        <a class="nav-link" (click)="setPhotosTabActive()" [ngClass]="photosTab ? 'active': ''">Fotos</a>
       </li>
     </ul>
   </div>

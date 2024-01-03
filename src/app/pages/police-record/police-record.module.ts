@@ -17,6 +17,20 @@ import {MessageService} from "primeng/api";
 import { ToastModule } from 'primeng/toast';
 import {AppRoutingModule} from "../../app-routing.module";
 import { BanditTattoosComponent } from './components/bandit-tattoos/bandit-tattoos.component';
+import { BanditRgsComponent } from './components/bandit-rgs/bandit-rgs.component';
+import { BanditAddressesComponent } from './components/bandit-addresses/bandit-addresses.component';
+import { BanditPhonesComponent } from './components/bandit-phones/bandit-phones.component';
+import { BanditFamilyComponent } from './components/bandit-family/bandit-family.component';
+import { BanditGunsComponent } from './components/bandit-guns/bandit-guns.component';
+import { BanditChildsComponent } from './components/bandit-childs/bandit-childs.component';
+import { BanditMotorsComponent } from './components/bandit-motors/bandit-motors.component';
+import { BanditJobAssociateComponent } from './components/bandit-job-associate/bandit-job-associate.component';
+import { BanditJobLocationsComponent } from './components/bandit-job-locations/bandit-job-locations.component';
+import { BanditMomentsComponent } from './components/bandit-moments/bandit-moments.component';
+import { BanditFriendsComponent } from './components/bandit-friends/bandit-friends.component';
+import { BanditSocialMediaComponent } from './components/bandit-social-media/bandit-social-media.component';
+import { BanditPessoalSignalsComponent } from './components/bandit-pessoal-signals/bandit-pessoal-signals.component';
+import { BanditPhotosComponent } from './components/bandit-photos/bandit-photos.component';
 
 const routes: Routes = [
   {
@@ -34,7 +48,21 @@ const routes: Routes = [
     PoliceRecordModalComponent,
     PoliceRecordDetailsComponent,
     PoliceRecordDetailsToolbarComponent,
-    BanditTattoosComponent
+    BanditTattoosComponent,
+    BanditRgsComponent,
+    BanditAddressesComponent,
+    BanditPhonesComponent,
+    BanditFamilyComponent,
+    BanditGunsComponent,
+    BanditChildsComponent,
+    BanditMotorsComponent,
+    BanditJobAssociateComponent,
+    BanditJobLocationsComponent,
+    BanditMomentsComponent,
+    BanditFriendsComponent,
+    BanditSocialMediaComponent,
+    BanditPessoalSignalsComponent,
+    BanditPhotosComponent
   ],
   imports: [
     CommonModule,
