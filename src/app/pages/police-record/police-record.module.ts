@@ -10,23 +10,19 @@ import {BanditService} from "./shared/service/bandit.service";
 import {PaginatorModule} from "primeng/paginator";
 import {CPFPipe} from "../../common/pipes/cpf.pipe";
 import {CustomBdDatePipe} from "../../common/pipes/custom-bd-date.pipe";
-import {registerLocaleData} from "@angular/common";
-import localePt from '@angular/common/locales/pt';
 import {ReactiveFormsModule} from "@angular/forms";
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { MunicipioService } from '../../common/services/IBGE/municipio.service';
 import {MessageService} from "primeng/api";
 import { ToastModule } from 'primeng/toast';
-
-registerLocaleData(localePt);
-
+import {AppRoutingModule} from "../../app-routing.module";
 
 const routes: Routes = [
   {
     path: '', component: PoliceRecordComponent, pathMatch: "full"
   },
   {
-    path: ':id/details', component: PoliceRecordDetailsComponent
+    path: ':id', component: PoliceRecordDetailsComponent
   }
 ]
 
@@ -47,7 +43,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NgxMaskDirective,
     NgxMaskPipe,
-    ToastModule
+    ToastModule,
   ],
   providers:[
     BanditService,

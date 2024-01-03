@@ -8,12 +8,8 @@ import {NavbarModule} from "./common/components/navbar/navbar.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import { PaginatorModule } from 'primeng/paginator';
-import { NgxSpinnerModule } from "ngx-spinner";
 import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
-
-export interface NgxSpinnerConfig {
-  type?: string;
-}
+import {NgxSpinnerModule} from "ngx-spinner";
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -31,9 +27,9 @@ const maskConfig: Partial<IConfig> = {
     NavbarModule,
     NgbModule,
     PaginatorModule,
-    NgxSpinnerModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    NgxSpinnerModule
   ],
   providers: [
     provideEnvironmentNgxMask(maskConfig),

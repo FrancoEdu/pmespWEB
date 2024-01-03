@@ -5,6 +5,7 @@ import {IBaseResponse} from "../../../../common/Models/IBase/IBaseResponse";
 import {Subscription} from "rxjs";
 import {Search} from "../../../../common/Models/Search/Search";
 import {MessageService} from "primeng/api";
+import {Loading} from "../../../../common/Models/Loading/Loading";
 
 interface PageEvent {
   first: number;
@@ -24,6 +25,8 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
   page: number = 1;
 
   bandits: Bandit[] = [];
+
+  possibleDeleteBandit!: Bandit;
 
   banditDetail?: Bandit;
 
@@ -91,6 +94,10 @@ export class PoliceRecordComponent implements OnInit, OnDestroy{
         detail: `${error.message}`
       });
     });
+  }
+
+  setPossibleDeleteBandit(bandit: Bandit): void{
+    this.possibleDeleteBandit = bandit;
   }
 
   ngOnDestroy(): void {

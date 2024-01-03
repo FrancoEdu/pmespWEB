@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
       <img src="./assets/logo_pmesp.png" height="45" alt="Logo da Polícia Militar do Estado de São Paulo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -14,10 +14,10 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="policeRecord">Fichas</a>
+            <a class="nav-link" aria-current="page" [routerLink]="['policeRecord']">Fichas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="transcriptions">Transcrições</a>
+            <a class="nav-link" [routerLink]="['transcriptions']">Transcrições</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

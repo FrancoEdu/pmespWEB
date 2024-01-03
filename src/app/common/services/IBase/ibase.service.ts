@@ -1,9 +1,9 @@
 import {Injectable, Injector} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IBaseResponse} from "../../Models/IBase/IBaseResponse";
-import {_environment} from "../../../environment/environment";
 import {Observable, finalize, timeout} from "rxjs";
 import { LoadingService } from '../Loading/loading.service';
+import {_environment} from "../../../environment/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,6 @@ export class IBaseService<T>{
   getAll(loadingDescription: any = null): Observable<IBaseResponse | any>{
     this._loadingService.show(loadingDescription);
     return this._httpClient.get(this._apiURL).pipe(
-      timeout(_environment.timeOutAPI),
       finalize(() => this._loadingService.hide())
     );
   }

@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: "",
     redirectTo: "policeRecord",
-    pathMatch: 'full',
+    pathMatch: "full"
   },
   {
     path:'policeRecord', loadChildren: () => import('./pages/police-record/police-record.module').then((m) => m.PoliceRecordModule)

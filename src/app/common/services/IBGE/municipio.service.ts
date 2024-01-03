@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Municipio } from '../../Models/Municipio/Municipio';
-import { Observable, finalize, timeout } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { LoadingService } from '../Loading/loading.service';
 import { _environment } from '../../../environment/environment';
 
@@ -17,10 +17,9 @@ export class MunicipioService {
   ) { }
 
   getAllMunicipios(load: any = null): Observable<Municipio>{
-    this._loadingService.show();
+    /*this._loadingService.show();*/
     return this._httpCliente.get(this.ibgePoint).pipe(
-      timeout(_environment.timeOutAPI),
-      finalize(() => this._loadingService.hide())
+      /*finalize(() => this._loadingService.hide())*/
     );
   }
 }

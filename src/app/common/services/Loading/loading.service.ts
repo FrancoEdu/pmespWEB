@@ -48,7 +48,6 @@ export class LoadingService {
   ): Loading {
     const loading: Loading = {
       Description: description ?? 'Carregando...',
-      BackgroundColor: backgroundColor ?? 'rgba(51,51,51,0.8)',
       Color: color ?? '#fff',
       Size: size ?? 'medium',
       Type: type ?? 'Type',

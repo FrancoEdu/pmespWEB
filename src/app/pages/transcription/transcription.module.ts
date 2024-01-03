@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranscriptionsComponent } from './pages/transcriptions/transcriptions.component';
 import {RouterModule, Routes} from "@angular/router";
+import {AppRoutingModule} from "../../app-routing.module";
 
 const routes: Routes = [
   {
@@ -13,9 +14,9 @@ const routes: Routes = [
   declarations: [
     TranscriptionsComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+      CommonModule,
+      RouterModule.forChild(routes),
+    ]
 })
 export class TranscriptionModule { }
